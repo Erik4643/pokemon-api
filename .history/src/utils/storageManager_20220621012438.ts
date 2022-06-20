@@ -5,8 +5,8 @@ class StorageManager {
       try {
         const serializedState = JSON.stringify(data);
         localStorage.setItem(key, serializedState);
-      } catch (error) {
-        console.log('error', error);
+      } catch {
+        // ignore write errors
       }
     }
   };
@@ -31,8 +31,8 @@ class StorageManager {
     if (typeof window !== 'undefined') {
       try {
         localStorage.removeItem(key);
-      } catch (error) {
-        console.log('error', error);
+      } catch {
+        // ignore write errors
       }
     }
   };
@@ -41,8 +41,8 @@ class StorageManager {
     if (typeof window !== 'undefined') {
       try {
         localStorage.clear();
-      } catch (error) {
-        console.log('error', error);
+      } catch {
+        // ignore write errors
       }
     }
   };
